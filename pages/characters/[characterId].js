@@ -12,12 +12,14 @@ export default function Character({character}) {
 
 
 export async function getStaticProps({params}){
-    const results = await fetch (`https://last-airbender-api.herokuapp.com/api/v1/characters?name=${params.characterId.replace(/\-/g, '+')}`).then(r=> r.json());
+    const results = await fetch (`https://last-airbender-api.herokuapp.com/api/v1/characters?name=${params.characterId}`).then(r=> r.json());
+    
     return {
         props: {
             character :results[0]
         }
     }
+
 }
 
 
@@ -25,7 +27,7 @@ export async function getStaticPaths() {
     const characters = await fetch('https://last-airbender-api.herokuapp.com/api/v1/characters?perPage=500').then(r => r.json());
     return{
         paths: characters.map(character =>{
-            const characterId = character.name.toLowerCase().replace(/ /g,'-');
+            const characterId = character.name.toLowerCase();
             return{
                 params:{
                     characterId
