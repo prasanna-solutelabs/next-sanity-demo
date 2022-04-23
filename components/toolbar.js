@@ -9,19 +9,12 @@ export const Toolbar =() =>{
                 
                 <div onClick={()=> router.push('/')}>Home</div>
                 <div onClick={()=> router.push('/time')}>Time</div>
-                <div  onClick={()=> window.location.href = 'https://github.com'}>Github</div>
-                <div onClick={() => router.push('/avatar')}>Avatar</div>
+                <div  onClick={()=>router.push('/avatar2')}>Avatar</div>
         </div>
     )
 }
 
-// export function getStaticProps() {
-//     return{
-//         props:{
-//             time: new Date().toISOString()
-//         },
-//     };
-// }
+
 
 
 
